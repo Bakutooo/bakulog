@@ -1,0 +1,13 @@
+﻿@model IEnumerable<BakuLog.Models.Post>
+
+@foreach (var item in Model)
+{
+    <div class="post">
+        <p>@item.Content</p>
+        <p>
+            @Html.ActionLink("Supprimer", "Delete", "Posts", new { id = item.PostID }, new { @class = "btn btn-danger" })
+            @Html.ActionLink("Editer", "Edit", "Posts", new { id = item.PostID }, new { @class = "btn" })
+            <span class="datetime">Publié le : @item.PublishedDateTime</span>
+        </p>
+    </div>
+}
